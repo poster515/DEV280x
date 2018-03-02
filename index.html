@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--FINANCE PAGE-->
+    <head>
+
+        
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+        <!-- http://getbootstrap.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <!-- App's own CSS -->
+        <link href="/static/styles.css" rel="stylesheet"/>
+
+        <!-- http://jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+
+        <!-- http://getbootstrap.com/ -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/corejavascript/typeahead.js/master/dist/typeahead.jquery.js"></script>
+
+        <!-- http://handlebarsjs.com/ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <!-- app's own JavaScript -->
+        <script src="/static/scripts.js"></script>
+
+        <title>Module 2 Home</title>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <a class="navbar-brand" href="/">Module 2 Lab</a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="/quote">Quote</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/buy">Buy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sell">Sell</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="container p-5">
+            <div>
+                <label><b>Change/Update</b></label>
+                <select id="settings_menu">
+                    <option value=""></option>
+                    <option value="password">Password</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="bench1RM">Bench 1 Rep Max</option>
+                    <option value="squat1RM">Squat 1 Rep Max</option>
+                    <option value="squat1RM">Deadlift 1 Rep Max</option>
+                </select>
+            </div>
+            <form action="/settings_change" method="post">
+                <ul id="settings_table">
+    
+                </ul>
+                <button class="btn btn-primary" type="submit">Confirm Changes</button>
+            </form>
+        </main>
+
+    </body>
+
+</html>
