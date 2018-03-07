@@ -1,39 +1,23 @@
 // Execute when the DOM is fully loaded
 $(document).ready(function() {
 
-    $('#settings_menu').on('change', function(x) {
+    var myTable = document.getElementById("body_table");
 
-        var e = document.getElementById("settings_menu");
-        var setting = e.options[e.selectedIndex].text; //obtain value that the select menu has
+    // Delete any list items in the table, if there were any
+    $(body_table).empty();
 
-        // Delete any list items in the table, if there were any
-        $(settings_table).empty();
+    $.getJSON("/history", function(data, textStatus, jqXHR) {
+        $.each(data, function (i) {
+            // Create an empty <tr> element and add it to the next position of the table:
+            var row = myTable.insertRow(i);
 
-        switch(setting){
-            case("Password"):
-                $("#settings_table").append("<li><input type='text' name='password' placeholder='New password' /></li>");
-                $("#settings_table").append("<li><input type='text' name='confirm_password' placeholder='Confirm password' /></li>");
-                break;
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
 
-            case("Email"):
-                $("#settings_table").append("<li><input type='text' name='email' placeholder='New email' /></li>");
-                break;
-
-            case("Phone"):
-                $("#settings_table").append("<li><input type='text' name='phone' placeholder='New phone' /></li>");
-                break;
-
-            case("Bench 1 Rep Max"):
-                $("#settings_table").append("<li><input type='text' name='bench1RM' placeholder='New bench 1 rep max' /></li>");
-                break;
-
-            case("Squat 1 Rep Max"):
-                $("#settings_table").append("<li><input type='text' name='squat1RM' placeholder='New squat 1 rep max' /></li>");
-                break;
-
-            case("Deadlift 1 Rep Max"):
-                $("#settings_table").append("<li><input type='text' name='deadlift1RM' placeholder='New deadlift 1 rep max' /></li>");
-                break;
-        }
+            // Add some text to the new cells:
+            cell1.innerHTML = data[i].name;
+            cell2.innerHTML = data[i].email;
+        });
     });
 });
